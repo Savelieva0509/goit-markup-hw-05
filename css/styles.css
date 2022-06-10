@@ -48,7 +48,7 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--primary-white-color);
     color: var(--primary-text-color);
-    /* padding-top: 80px; */
+    padding-top: 80px;
 }
 
 .list {
@@ -57,6 +57,10 @@ body {
 
 .link {
     text-decoration: none;
+    
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link:hover,
@@ -104,11 +108,13 @@ body {
 
 .page-header {
     border-bottom: 1px solid #ECECEC;
-    /* position: fixed;
+    position: fixed;
     width: 100%;
     min-height: 80px;
     top: 0;
-    left: 0; */
+    left: 0;
+    z-index: 10;
+    background-color: inherit;
 }
 
 .header-nav {
@@ -178,7 +184,7 @@ body {
     background-color:var(--accent-color);
     border-radius: 2px; 
     left: 0cm;
-    bottom: 0px; 
+    bottom: -2px; 
 }
 
 .contacts-list {
@@ -255,13 +261,17 @@ body {
     letter-spacing: 0.06em;
 
     color: var(--primary-white-color);
-    background: var(--accent-color);
+    background-color: var(--accent-color);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
 
     padding: 10px 32px;
     display: inline-block;
     min-width: 200px;
+
+    transition-property:background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-button:hover,
@@ -462,6 +472,9 @@ body {
     justify-content: center;
 
     color: var(--icon-color);
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+                color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-social-icon {
@@ -516,7 +529,10 @@ body {
     height: 60px;
     fill: currentColor;
 
-}
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+            border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
 
 .clients-link:hover,
 .clients-link:focus {
@@ -610,6 +626,9 @@ footer {
     justify-content: center;
 
     color: var(--primary-white-color);
+
+    transition: backgroud-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+            color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-social-icon {
@@ -643,6 +662,9 @@ footer {
     border-radius: 4px;
 
     padding: 6px 22px;
+
+    transition: backgroud-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+            color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1)
 }
 
 .filter-item + .filter-item {
@@ -652,7 +674,7 @@ footer {
 .filter-button:hover,
 .filter-button:focus {
     color:var(--primary-white-color);
-    background: var(--accent-color);
+    background-color: var(--accent-color);
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 
                 0px 1px 2px rgba(0, 0, 0, 0.08), 
                 0px 2px 2px rgba(0, 0, 0, 0.12);
@@ -660,7 +682,7 @@ footer {
 
 .active {
     color: var(--primary-white-color);
-    background: var(--accent-color);
+    background-color: var(--accent-color);
 }
 
 .portfolio-list {
@@ -701,13 +723,14 @@ footer {
 
     padding: 63px 24px 63px 24px;
 
-    transition: transform 250ms linear;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-link {
     text-decoration: none;
     display: block;
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            
 }
 
 .portfolio-link:hover,
@@ -759,6 +782,8 @@ footer {
     height: 100%;
     
     background: rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
@@ -766,17 +791,25 @@ footer {
     pointer-events: none;
 }
 
+.backdrop.is-hidden .modal {
+    transform: translate(-50%, -50%) scale(0.9) rotateZ(270deg);
+}
+
 .modal {
     position: absolute;
     left: 50%;
     top: 50%; 
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1) rotateZ(360deg);
     
     width: 528px;
     height: 581px;
     background: #FFFFFF;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 
+                0px 1px 1px rgba(0, 0, 0, 0.14), 
+                0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;  
+
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close-btn {
